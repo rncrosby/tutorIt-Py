@@ -1,10 +1,8 @@
 import smtplib
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
 from flask import Flask
 app = Flask(__name__)
-
-server = smtplib.SMTP('smtp.gmail.com', 587)
-server.starttls()
-server.login("tutorit.development@gmail.com", "1EstateDr")
 
 @app.route("/")
 def hello():
@@ -13,8 +11,21 @@ def hello():
 @app.route("/verifyEmail/<email>/<code>")
 def verifyEmail(email,code):
 	print "sending email"
-	msg = "Welcome to TutorTree, your code to get started is: " + code
-	server.sendmail("tutorit.development@gmail.com", email, msg)
+	fromaddr = "<TutorTree Verification> tutorit.development@gmail.com"
+	toaddr = email
+	msg = MIMEMultipart()
+	msg['From'] = fromaddr
+	msg['To'] = toaddr
+	msg['Subject'] = "TutorTree Verification Code"
+
+	body = "Welcome to TutorTree,\nYour code is: " + code
+	msg.attach(MIMEText(body, 'plain'))
+
+	server = smtplib.SMTP('smtp.gmail.com', 587)
+	server.starttls()
+	server.login(fromaddr, "1EstateDr")
+	text = msg.as_string()
+	server.sendmail(fromaddr, toaddr, text)
 	server.quit()
 	return "Success"
 
