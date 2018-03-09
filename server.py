@@ -1,5 +1,10 @@
+import smtplib
 from flask import Flask
 app = Flask(__name__)
+
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login("tutorit.development@gmail.com", "1EstateDr")
 
 @app.route("/")
 def hello():
@@ -7,7 +12,11 @@ def hello():
 
 @app.route("/verifyEmail/<email>/<code>")
 def verifyEmail(email,code):
-	return "<h1 style='color:black'><center>" + email + ", " + code + "</center></h1>"
+	print "sending email"
+	msg = "Welcome to TutorTree, your code to get started is: " + code
+	server.sendmail("tutorit.development@gmail.com", email, msg)
+	server.quit()
+	return "Success"
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', threaded=True)
