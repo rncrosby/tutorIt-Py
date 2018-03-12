@@ -31,7 +31,7 @@ def verifyEmail(email,code):
 
 @app.route("/sendPush")
 def sendPush():
-	client = APNSClient(certificate='cert/apns-pro.pem',
+	client = APNSClient(certificate='cert/apns-dev.pem',
                     default_error_timeout=10,
                     default_expiration_offset=2592000,
                     default_batch_size=100,
