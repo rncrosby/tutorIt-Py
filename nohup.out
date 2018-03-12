@@ -2,3 +2,110 @@
 169.233.111.155 - - [12/Mar/2018 05:50:40] "GET / HTTP/1.1" 200 -
 169.233.105.200 - - [12/Mar/2018 05:53:55] "GET / HTTP/1.1" 200 -
 169.233.105.200 - - [12/Mar/2018 05:55:51] "GET / HTTP/1.1" 200 -
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "server.py", line 43, in <module>
+    app.run(host='0.0.0.0', threaded=True)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 841, in run
+    run_simple(host, port, self, **options)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/werkzeug/serving.py", line 814, in run_simple
+    inner()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/werkzeug/serving.py", line 774, in inner
+    fd=fd)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/werkzeug/serving.py", line 660, in make_server
+    passthrough_errors, ssl_context, fd=fd)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/werkzeug/serving.py", line 577, in __init__
+    self.address_family), handler)
+  File "/usr/lib/python2.7/SocketServer.py", line 419, in __init__
+    self.server_bind()
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 108, in server_bind
+    SocketServer.TCPServer.server_bind(self)
+  File "/usr/lib/python2.7/SocketServer.py", line 430, in server_bind
+    self.socket.bind(self.server_address)
+  File "/usr/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+socket.error: [Errno 98] Address already in use
+169.233.207.188 - - [12/Mar/2018 18:20:10] "GET / HTTP/1.1" 200 -
+169.233.207.188 - - [12/Mar/2018 18:25:19] "GET / HTTP/1.1" 200 -
+169.233.207.188 - - [12/Mar/2018 18:25:23] "GET / HTTP/1.1" 200 -
+166.177.250.164 - - [12/Mar/2018 19:18:52] "GET / HTTP/1.1" 200 -
+71.59.225.239 - - [12/Mar/2018 19:21:44] "GET /verifyEmail/jfournie@uoregon.edu/364770 HTTP/1.1" 200 -
+128.223.223.136 - - [12/Mar/2018 19:22:34] "GET / HTTP/1.1" 200 -
+128.223.223.132 - - [12/Mar/2018 19:23:16] "GET /verifyEmail/Amartush@uoregon.edu/612054 HTTP/1.1" 200 -
+128.223.223.134 - - [12/Mar/2018 19:31:32] "GET /verifyEmail/Amartush@uoregon.edu/414814 HTTP/1.1" 200 -
+128.223.223.134 - - [12/Mar/2018 19:34:05] "GET /verifyEmail/Amartush@uoregon.edu/695295 HTTP/1.1" 200 -
+166.177.250.164 - - [12/Mar/2018 19:38:43] "GET /verifyEmail/amartush@uoregon.edu/724587 HTTP/1.1" 200 -
+71.59.225.239 - - [12/Mar/2018 19:43:06] "GET / HTTP/1.1" 200 -
+[2018-03-12 20:43:26,843] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:43:26] "GET /sendPush HTTP/1.1" 500 -
+[2018-03-12 20:43:27,984] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:43:27] "GET /sendPush HTTP/1.1" 500 -
+[2018-03-12 20:43:29,137] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:43:29] "GET /sendPush HTTP/1.1" 500 -
+169.233.207.188 - - [12/Mar/2018 20:43:54] "GET / HTTP/1.1" 200 -
+[2018-03-12 20:43:57,180] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:43:57] "GET /sendPush HTTP/1.1" 500 -
+[2018-03-12 20:44:00,123] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:44:00] "GET /sendPush HTTP/1.1" 500 -
+[2018-03-12 20:44:00,984] ERROR in app: Exception on /sendPush [GET]
+Traceback (most recent call last):
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/home/robby/tutorTree/tutorTreeEnv/local/lib/python2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+169.233.235.111 - - [12/Mar/2018 20:44:00] "GET /sendPush HTTP/1.1" 500 -
