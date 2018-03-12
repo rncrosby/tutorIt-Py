@@ -35,7 +35,7 @@ def verifyEmail(email,code):
 @app.route("/sendPush")
 def sendPush():
     token_hex = 'a152e60af7ac27a080c788ae4fac1ae36b462d17f79b37e75bceba32af71ccfd'
-    payload = Payload(alert="Hello World!", sound="default", badge=1, mutable_content=True)
+    payload = Payload(alert="Hello World!", sound="default", badge=1)
     apns.gateway_server.send_notification(token_hex, payload)
 
 if __name__ == "__main__":
