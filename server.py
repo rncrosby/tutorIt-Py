@@ -1,7 +1,9 @@
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
+from pushjack import APNSClient
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -28,7 +30,7 @@ def verifyEmail(email,code):
 	return "Success"
 
 @app.route("/sendPush")
-def verifyEmail(token):
+def verifyEmail():
 	client = APNSClient(certificate='cert/apns-pro.pem',
                     default_error_timeout=10,
                     default_expiration_offset=2592000,
