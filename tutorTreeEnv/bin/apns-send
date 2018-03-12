@@ -1,0 +1,4 @@
+#!/home/robby/tutorTree/tutorTreeEnv/bin/python
+# EASY-INSTALL-SCRIPT: 'apns==2.0.1','apns-send'
+__requires__ = 'apns==2.0.1'
+__import__('pkg_resources').run_script('apns==2.0.1', 'apns-send')
