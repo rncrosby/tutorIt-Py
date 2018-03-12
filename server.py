@@ -7,6 +7,8 @@ from flask import Flask
 
 app = Flask(__name__)
 
+apns = APNs(use_sandbox=True, cert_file='cert/apns-dev.pem', key_file='cert/apns-dev-key.pem')
+
 @app.route("/")
 def hello():
 	return "<h1 style='color:black'><center>All Systems Operational</center></h1>"
@@ -32,14 +34,9 @@ def verifyEmail(email,code):
 
 @app.route("/sendPush")
 def sendPush():
-	client = APNSClient(certificate='cert/apns-dev.pem',
-                    default_error_timeout=10,
-                    default_expiration_offset=2592000,
-                    default_batch_size=100,
-            88ae4fac1ae36b462d17f79b37e75bceba32af71ccfd'
-	alert = 'Hello world.'
-	res = client.send(token,
-	                  alertrn "Success"
+    token_hex = 'a152e60af7ac27a080c788ae4fac1ae36b462d17f79b37e75bceba32af71ccfd'
+    payload = Payload(alert="Hello World!", sound="default", badge=1, mutable_content=True)
+    apns.gateway_server.send_notification(token_hex, payload)
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', threaded=True)
