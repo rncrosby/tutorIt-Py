@@ -28,7 +28,7 @@ def verifyEmail(email,code):
 	return "Success"
 
 @app.route("/sendPush")
-def verifyEmail(token):
+def sendPush():
 	client = APNSClient(certificate='cert/apns-pro.pem',
                     default_error_timeout=10,
                     default_expiration_offset=2592000,
