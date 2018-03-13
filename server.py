@@ -33,7 +33,7 @@ def verifyEmail(email,code):
 	return "Success"
 
 @app.route("/sendPush/<fromName>/<message>/<token>")
-def sendPush():
+def sendPush(fromName,message,token):
     payload = Payload(title=fromName,alert=message, sound="default", badge=1)
     apns.gateway_server.send_notification(token, payload)
     return "Success"
