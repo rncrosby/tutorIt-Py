@@ -12,7 +12,7 @@ apns_enhanced = APNs(use_sandbox=False, cert_file='cert/pro/apns-pro.pem', enhan
 apns = APNs(use_sandbox=False, cert_file='cert/pro/apns-pro.pem', key_file='cert/pro/apns-pro-key-noenc.pem')
 
 def response_listener(error_response):
-	_logger.debug("client get error-response: " + str(error_response))
+	print ("client get error-response: " + str(error_response))
 
 @app.route("/")
 def hello():
