@@ -7,7 +7,11 @@ from flask import Flask
 
 app = Flask(__name__)
 
+apns_enhanced = APNs(use_sandbox=False, cert_file='cert/pro/apns-pro.pem', enhanced=True)
 apns = APNs(use_sandbox=False, cert_file='cert/pro/apns-pro.pem', key_file='cert/pro/apns-pro-key-noenc.pem')
+
+def response_listener(error_response):
+	_logger.debug("client get error-response: " + str(error_response))
 
 @app.route("/")
 def hello():
@@ -35,8 +39,11 @@ def verifyEmail(email,code):
 @app.route("/sendPush/<message>/<token>")
 def sendPush(message,token):
 	payload = Payload(alert=message, sound="default", badge=1)
-	apns.gateway_server.send_notification(token, payload)
+	identifier = random.getrandbits(32)
+	apns_enhanced.gateway_server.send_notification(token, payload, identifier=identifier)
+	apns_enhanced.gateway_server.register_response_listener(response_listener)
 	return "Success"
+
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', threaded=True)
