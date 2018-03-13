@@ -7,7 +7,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-apns = APNs(use_sandbox=True, cert_file='cert/apns-dev.pem', key_file='cert/apns-dev-key.pem')
+apns = APNs(use_sandbox=False, cert_file='cert/pro/apns-pro.pem', key_file='cert/pro/apns-pro-key-noenc.pem')
 
 @app.route("/")
 def hello():
@@ -34,7 +34,6 @@ def verifyEmail(email,code):
 
 @app.route("/sendPush/<message>/<token>")
 def sendPush(message,token):
-	print 'sending: ' + message
 	payload = Payload(alert=message, sound="default", badge=1)
 	apns.gateway_server.send_notification(token, payload)
 	return "Success"
