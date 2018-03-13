@@ -34,9 +34,8 @@ def verifyEmail(email,code):
 
 @app.route("/sendPush/<fromName>/<message>/<token>")
 def sendPush(fromName,message,token):
-	messageText = fromName + ': ' + message
-    payload = Payload(alert=messageText, sound="default", badge=1)
-    apns.gateway_server.send_notification(token, payload)
+	payload = Payload(alert=message, sound="default", badge=1)
+	apns.gateway_server.send_notification(token, payload)
     return "Success"
 
 if __name__ == "__main__":
