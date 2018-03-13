@@ -32,11 +32,10 @@ def verifyEmail(email,code):
 	server.quit()
 	return "Success"
 
-@app.route("/sendPush")
+@app.route("/sendPush/<fromName>/<message>/<token>")
 def sendPush():
-    token_hex = 'a152e60af7ac27a080c788ae4fac1ae36b462d17f79b37e75bceba32af71ccfd'
-    payload = Payload(alert="Hello World!", sound="default", badge=1)
-    apns.gateway_server.send_notification(token_hex, payload)
+    payload = Payload(title=fromName,alert=message, sound="default", badge=1)
+    apns.gateway_server.send_notification(token, payload)
     return "Success"
 
 if __name__ == "__main__":
