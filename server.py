@@ -32,8 +32,9 @@ def verifyEmail(email,code):
 	server.quit()
 	return "Success"
 
-@app.route("/sendPush/<fromName>/<message>/<token>")
-def sendPush(fromName,message,token):
+@app.route("/sendPush/<message>/<token>")
+def sendPush(message,token):
+	print 'sending: ' + message
 	payload = Payload(alert=message, sound="default", badge=1)
 	apns.gateway_server.send_notification(token, payload)
 	return "Success"
