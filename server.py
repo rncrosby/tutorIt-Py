@@ -60,23 +60,22 @@ def client_token():
 @app.route("/checkoutWithNonceAndAmount/<nonce>/<amount>")
 def checkoutWithNonceAndAmount(nonce,amount):
 	stringAmount = amount + '.00'
-	print '\n' + nonce + '\n' + stringAmount
-	# result = gateway.transaction.sale({
-	# 	"amount": amount,
-	# 	"payment_method_nonce": nonce,
-	# 	"options": {
-	# 		"submit_for_settlement": True
-	# 	}
-	# })
-	#
-	# if result.is_success:
-	# 	print result.transaction
-	# 	return "Success"
-	# # See result.transaction for details
-	# else:
-	# 	print result.message
-	# 	return "Error: " + result.message
-	# # Handle errors
+	result = gateway.transaction.sale({
+		"amount": stringAmount,
+		"payment_method_nonce": nonce,
+		"options": {
+			"submit_for_settlement": True
+		}
+	})
+
+	if result.is_success:
+		print result.transaction
+		return "Success"
+	# See result.transaction for details
+	else:
+		print result.message
+		return "Error: " + result.message
+	# Handle errors
 
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', threaded=True)
